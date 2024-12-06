@@ -5,38 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propose a Rule</title>
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Propose a Rule</h1>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.name.label }}<br>
-            {{ form.name(size=30) }}
-        </div>
-        <div>
-            {{ form.title.label }}<br>
-            {{ form.title(size=30) }}
-        </div>
-        <div>
-            {{ form.description.label }}<br>
-            {{ form.description(rows=5, cols=30) }}
-        </div>
-        <div>
-            {{ form.submit() }}
-        </div>
-    </form>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <p class="{{ category }}">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    <header>
+        <h1>Propose a Rule</h1>
+    </header>
+    
+    <main>
+        <form method="POST" class="styled-form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label for="name">{{ form.name.label }}</label><br>
+                {{ form.name(size=30, class_="form-input", id="name") }}
+            </div>
+            <div class="form-group">
+                <label for="title">{{ form.title.label }}</label><br>
+                {{ form.title(size=30, class_="form-input", id="title") }}
+            </div>
+            <div class="form-group">
+                <label for="description">{{ form.description.label }}</label><br>
+                {{ form.description(rows=5, cols=30, class_="form-textarea", id="description") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class_="form-button") }}
+            </div>
+        </form>
 
-    <!-- Link back to the Home Page -->
-    <p style="text-align: center; margin-top: 20px;">
-        <a href="/" class="back-link">Back to Home</a>
-    </p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <p class="{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Link back to the Home Page -->
+        <p style="text-align: center; margin-top: 20px;">
+            <a href="/" class="back-link">Back to Home</a>
+        </p>
+    </main>
 </body>
 </html>

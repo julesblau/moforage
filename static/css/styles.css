@@ -7,6 +7,11 @@ body {
     color: #333;
 }
 
+header {
+    text-align: center;
+    padding: 20px;
+}
+
 /* Header Styles */
 h1 {
     text-align: center;
@@ -24,48 +29,77 @@ h2 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-/* Paragraph and Links */
 p {
     text-align: center;
     font-size: 1.4em;
     margin: 10px 20px;
 }
 
-a {
-    display: inline-block;
-    margin: 20px auto;
-    text-decoration: none;
-    font-size: 1.2em;
-    color: white;
-    background: linear-gradient(90deg, #cc0000, #ff4d4d);
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Split Layout */
+.split-layout {
+    display: flex;
+    flex-wrap: wrap; /* Ensures it wraps on smaller screens */
+    gap: 20px; /* Space between columns */
+    padding: 20px;
 }
 
-a:hover {
-    background: linear-gradient(90deg, #990000, #e60000);
-    transform: scale(1.05);
+/* Twitter Section */
+.twitter-section {
+    flex: 1; /* Takes half the space */
+    min-width: 300px; /* Ensures it's responsive on smaller screens */
 }
 
-/* Container Styles */
-div {
+.twitter-section div {
     background: white;
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     padding: 20px;
-    margin: 20px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
-div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+/* Standings Section */
+.standings-section {
+    flex: 1; /* Takes the other half */
+    min-width: 300px;
 }
 
-/* Twitter Section */
+.standings-section div {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    height: 100%;
+}
+
+/* League Standings Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 1em;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #cc0000;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tr:hover {
+    background: #ffdddd;
+}
+
+/* Heading Styles */
 h3 {
     color: #cc0000;
     font-size: 1.5em;
@@ -74,9 +108,36 @@ h3 {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Form Styles */
-form {
-    max-width: 500px;
+/* Propose Rule Button Styles */
+.propose-rule-button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #cc0000, #ff4d4d); /* Gradient background */
+    padding: 15px 30px;
+    border-radius: 30px; /* Fully rounded edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    margin: 20px auto;
+}
+
+.propose-rule-button:hover {
+    background: linear-gradient(90deg, #990000, #e60000); /* Darker gradient on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+.propose-rule-button:active {
+    transform: translateY(1px); /* Subtle press-in effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Return to default shadow */
+}
+
+/* General Form Styles */
+.styled-form {
+    max-width: 600px;
     margin: 30px auto;
     background: linear-gradient(135deg, #ffffff, #f2f2f2);
     padding: 25px;
@@ -84,20 +145,20 @@ form {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-form div {
+.form-group {
     margin-bottom: 20px;
 }
 
-form label {
-    display: block;
+label {
     font-weight: bold;
-    margin-bottom: 5px;
+    font-size: 1em;
     color: #333;
+    display: block;
+    margin-bottom: 5px;
 }
 
-form input,
-form textarea {
-    width: 100%;
+.form-input, .form-textarea {
+    width: 80%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -106,17 +167,17 @@ form textarea {
     transition: border-color 0.3s ease;
 }
 
-form input:focus,
-form textarea:focus {
+.form-input:focus, .form-textarea:focus {
     border-color: #cc0000;
     outline: none;
 }
 
-form textarea {
+.form-textarea {
     resize: vertical;
 }
 
-form button {
+/* Submit Button */
+.form-button {
     background: linear-gradient(90deg, #cc0000, #ff4d4d);
     color: white;
     padding: 12px 25px;
@@ -128,23 +189,57 @@ form button {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-form button:hover {
+.form-button:hover {
     background: linear-gradient(90deg, #990000, #e60000);
     transform: scale(1.05);
 }
 
+/* Flash Messages */
+.flash-messages {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #cc0000, #ff4d4d);
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.back-link:hover {
+    background: linear-gradient(90deg, #990000, #e60000);
+    transform: scale(1.05);
+}
+
+/* Header Image Styling */
+.header-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px; /* Adjust width to your preference */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image scales well inside the circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
+    border: 3px solid white;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    h1 {
-        font-size: 2.5em;
-    }
-    h2 {
-        font-size: 1.2em;
-    }
-    div {
-        max-width: 100%;
+    .split-layout {
+        flex-direction: column; /* Stacks sections on smaller screens */
     }
 }

@@ -13,22 +13,58 @@
         <h2>est. 2014</h2>
         <p>"The Home of Fantasy Football"</p>
     </header>
-
     <main>
-        <a href="/propose-rule">Propose a Rule</a>
+        <a href="/propose-rule" class="propose-rule-button">Propose a Rule</a>
 
-        <section>
+    </main>
+    <main class="split-layout">
+        <!-- Left: Twitter Feed -->
+        <section class="twitter-section">
+            <a class="twitter-timeline" 
+                href="https://twitter.com/moforage" 
+                data-width="100%" 
+                data-height="600" 
+                data-chrome="noheader nofooter noborders noscrollbar transparent" 
+                data-theme="light">
+                Tweets by moforage
+            </a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </section>
+
+        <!-- Right: League Standings -->
+        <section class="standings-section">
             <div>
-                <h3>Twitter</h3>
-                <a class="twitter-timeline" 
-                   href="https://twitter.com/moforage" 
-                   data-width="300" 
-                   data-height="500" 
-                   data-chrome="noheader nofooter noborders noscrollbar transparent" 
-                   data-theme="light">
-                  Tweets by moforage
-                </a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <h3>League Standings</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Team</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Team A</td>
+                            <td>10</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Team B</td>
+                            <td>9</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Team C</td>
+                            <td>8</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
@@ -52,6 +88,7 @@
                       time of the send, approval of this declaration is 7 likes.</p>
             </div>
         </section>
+
     </main>
 </body>
 </html>

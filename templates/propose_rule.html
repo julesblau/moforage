@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose a Rule</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Propose a Rule</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name(size=30) }}
+        </div>
+        <div>
+            {{ form.title.label }}<br>
+            {{ form.title(size=30) }}
+        </div>
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description(rows=5, cols=30) }}
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Link back to the Home Page -->
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="/" class="back-link">Back to Home</a>
+    </p>
+</body>
+</html>

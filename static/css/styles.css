@@ -224,6 +224,18 @@ label {
     transform: scale(1.05);
 }
 
+/* Header Image Styling */
+.header-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px; /* Adjust width to your preference */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image scales well inside the circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
+    border: 3px solid white;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
